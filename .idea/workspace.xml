@@ -23,6 +23,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Asus\Documents\JavaMentorProjects\react-projects\aviasales\node_modules\prettier" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -41,7 +42,7 @@
       <updated>1614346370983</updated>
       <workItem from="1614346372919" duration="3089000" />
       <workItem from="1614436076324" duration="1731000" />
-      <workItem from="1614513113554" duration="21465000" />
+      <workItem from="1614513113554" duration="22089000" />
     </task>
     <servers />
   </component>
