@@ -29,145 +29,11 @@
   padding: 20px;
 }
 
-.filters__title {
-  text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
-  line-height: 12px;
-  color: #4A4A4A;
-}
-
-
-.filters__list {
-
-}
-
-.filters__item {
-  display: flex;
-  align-items: center;
-  margin-top: 15px;
-}
-
-.filters__checkbox {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  border-color: #9ABBCE;
-}
-
-.filters__label {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 13px;
-  line-height: 20px;
-  color: #4A4A4A;
-}
-
 .tickets {
   width: 502px;
 //  outline: 2px dotted red;
 }
 
-.sorting {
-  display: flex;
-}
-
-.sorting__item {
-  flex-grow: 1;
-}
-
-.sorting__button {
-  width: 100%;
-  height: 50px;
-  background: #FFFFFF;
-  text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 18px;
-  border: 1px solid #DFE5EC;
-  outline: none;
-}
-
-.sorting__button--fastest {
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-.sorting__button--cheapest {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-}
-
-.sorting__button--active {
-  color: #ffffff;
-  background-color: #2196f3;
-}
-
-.tickets__list {
-
-}
-
-.tickets__item {
-  margin-top: 20px;
-}
-
-.ticket {
-  height: 144px;
-  padding: 20px 20px 20px 20px;
-  background: #FFFFFF;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.ticket__header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.ticket__price {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  color: #2196F3;
-  font-size: 24px;
-  line-height: 24px;
-  height: 24px;
-  align-self: center;
-}
-
-.ticket__logo {
-
-}
-
-.ticket__way {
-  display: flex;
-  justify-content: space-between;
-}
-
-.ticket__info {
-  max-width: 140px;
-}
-
-.ticket__subtitle {
-  font-family: 'Open Sans', sans-serif;
-  text-transform: uppercase;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 18px;
-  color: #A0B0B9;
-}
-
-.ticket__description {
-  font-family: 'Open Sans', sans-serif;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  color: #4A4A4A;
-}
 
 @media screen and (max-width: 940px) {
   .app {
@@ -220,6 +86,3 @@
     min-width: 320px;
   }
 }
-
-
-
