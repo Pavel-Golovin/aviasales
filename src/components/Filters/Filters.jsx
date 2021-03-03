@@ -51,12 +51,13 @@ const Filters = (props) => { // eslint-disable-line
 }
 
 const mapStateToProps = (state) => {
+  const {filter} = state;
   return {
-    isCheckedAll: state.isCheckedAll,
-    isCheckedNo: state.isCheckedNo,
-    isCheckedOne: state.isCheckedOne,
-    isCheckedTwo: state.isCheckedTwo,
-    isCheckedThree: state.isCheckedThree
+    isCheckedAll: filter.isCheckedAll,
+    isCheckedNo: filter.isCheckedNo,
+    isCheckedOne: filter.isCheckedOne,
+    isCheckedTwo: filter.isCheckedTwo,
+    isCheckedThree: filter.isCheckedThree
   }
 }
 
