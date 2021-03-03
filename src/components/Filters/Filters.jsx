@@ -14,7 +14,11 @@ const Filters = (props) => { // eslint-disable-line
     isCheckedOne,
     isCheckedTwo,
     isCheckedThree,
-    allChecked
+    allChecked,
+    noChecked,
+    oneChecked,
+    twoChecked,
+    threeChecked
   } = props;
   
   return (
@@ -26,19 +30,19 @@ const Filters = (props) => { // eslint-disable-line
           <label className={classes.filters__label} htmlFor="all">Все</label>
         </li>
         <li key="no-transfer" className={classes.filters__item}>
-          <input id="no-transfer" className="filters__checkbox" type="checkbox" value="Без пересадок" checked={isCheckedNo}/>
+          <input id="no-transfer" className="filters__checkbox" type="checkbox" value="Без пересадок" onChange={noChecked} checked={isCheckedNo}/>
           <label className={classes.filters__label} htmlFor="no-transfer">Без пересадок</label>
         </li>
         <li key="one-transfer" className={classes.filters__item}>
-          <input id="one-transfer" className="filters__checkbox" type="checkbox" value="Одна пересадка" checked={isCheckedOne}/>
+          <input id="one-transfer" className="filters__checkbox" type="checkbox" value="Одна пересадка" onChange={oneChecked} checked={isCheckedOne}/>
           <label className={classes.filters__label} htmlFor="one-transfer">1 пересадка</label>
         </li>
         <li key="two-transfer" className={classes.filters__item}>
-          <input id="two-transfer" className="filters__checkbox" type="checkbox" value="Две пересадки" checked={isCheckedTwo}/>
+          <input id="two-transfer" className="filters__checkbox" type="checkbox" value="Две пересадки" onChange={twoChecked} checked={isCheckedTwo}/>
           <label className={classes.filters__label} htmlFor="two-transfer">2 пересадки</label>
         </li>
         <li key="three-transfer" className={classes.filters__item}>
-          <input id="three-transfer" className="filters__checkbox" type="checkbox" value="Три пересадки" checked={isCheckedThree}/>
+          <input id="three-transfer" className="filters__checkbox" type="checkbox" value="Три пересадки" onChange={threeChecked} checked={isCheckedThree}/>
           <label className={classes.filters__label} htmlFor="three-transfer">3 пересадки</label>
         </li>
       </ul>
@@ -57,9 +61,13 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  const { allChecked } = bindActionCreators(actions, dispatch);
+  const { allChecked, noChecked, oneChecked, twoChecked, threeChecked } = bindActionCreators(actions, dispatch);
   return {
-    allChecked
+    allChecked,
+    noChecked,
+    oneChecked,
+    twoChecked,
+    threeChecked
   }
 }
 

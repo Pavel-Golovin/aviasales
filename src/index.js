@@ -12,29 +12,27 @@ const initialState = {
   isCheckedTwo: false,
   isCheckedThree: false
 }
+
+const toggleCheckbox = (state, stateProperty) => {
+  const updatedState = {...state, [stateProperty]: !state[stateProperty]}
+  return (Object.entries(updatedState).slice(1).every((item) => item[1])) ? {...updatedState, isCheckedAll: true} : {...updatedState, isCheckedAll: false};
+}
+
+const toggleCheckboxAll = (state) => Object.entries(state).reduce((acc, curr) => ({...acc, [curr[0]]: !state.isCheckedAll}), {});
+
 // eslint-disable-next-line
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "ALL_CHECKED":
-      if (state.isCheckedAll === false) {
-        return {
-          isCheckedAll: true,
-          isCheckedNo: true,
-          isCheckedOne: true,
-          isCheckedTwo: true,
-          isCheckedThree: true
-        }
-      }
-      if (state.isCheckedAll === true) {
-        return {
-          isCheckedAll: false,
-          isCheckedNo: false,
-          isCheckedOne: false,
-          isCheckedTwo: false,
-          isCheckedThree: false
-        }
-      }
-      break;
+      return toggleCheckboxAll(state);
+    case "NO_CHECKED":
+      return toggleCheckbox(state, "isCheckedNo");
+    case "ONE_CHECKED":
+      return toggleCheckbox(state, "isCheckedOne");
+    case "TWO_CHECKED":
+      return toggleCheckbox(state, "isCheckedTwo");
+    case "THREE_CHECKED":
+      return toggleCheckbox(state, "isCheckedThree");
     default:
       return state;
   }
