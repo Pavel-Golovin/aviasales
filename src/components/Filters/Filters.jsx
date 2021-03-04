@@ -1,25 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {bindActionCreators} from "redux";
 import classes from "./filters.module.scss";
 import * as actions from "../../actions";
 
-/* eslint-disable */
-
-const Filters = (props) => { // eslint-disable-line
+const Filters = (props) => {
   
-  const {
-    isCheckedAll,
-    isCheckedNo,
-    isCheckedOne,
-    isCheckedTwo,
-    isCheckedThree,
-    allChecked,
-    noChecked,
-    oneChecked,
-    twoChecked,
-    threeChecked
-  } = props;
+  const {isCheckedAll, isCheckedNo, isCheckedOne, isCheckedTwo, isCheckedThree, allChecked, noChecked, oneChecked, twoChecked, threeChecked} = props;
   
   return (
     <>
@@ -70,6 +58,33 @@ const mapDispatchToProps = (dispatch) => {
     twoChecked,
     threeChecked
   }
+}
+
+Filters.defaultProps = {
+  isCheckedAll: false,
+  isCheckedNo: false,
+  isCheckedOne: false,
+  isCheckedTwo: false,
+  isCheckedThree: false,
+  allChecked: () => {},
+  noChecked: () => {},
+  oneChecked: () => {},
+  twoChecked: () => {},
+  threeChecked: () => {}
+  
+}
+
+Filters.propTypes = {
+  isCheckedAll: PropTypes.bool,
+  isCheckedNo: PropTypes.bool,
+  isCheckedOne: PropTypes.bool,
+  isCheckedTwo: PropTypes.bool,
+  isCheckedThree: PropTypes.bool,
+  allChecked: PropTypes.func,
+  noChecked: PropTypes.func,
+  oneChecked: PropTypes.func,
+  twoChecked: PropTypes.func,
+  threeChecked: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters);
