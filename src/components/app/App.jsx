@@ -12,7 +12,17 @@ import * as actions from "../../actions";
 
 /* eslint-disable */
 
-const App = ({tickets, stop, searchId, fetchId, fetchTickets}) => {
+const App = (props) => {
+  
+  const {
+    tickets,
+    stop,
+    searchId,
+    filter,
+    sort,
+    fetchId,
+    fetchTickets
+  } = props;
   
   useEffect(() => {
     const service = new ServiceAPI();
@@ -23,9 +33,53 @@ const App = ({tickets, stop, searchId, fetchId, fetchTickets}) => {
     }
   }, [searchId, tickets]);
   
-  const ticketsList = (tickets) => tickets.slice(0,5).map((ticket, index) => <Ticket id={index} data={ticket}/>);
+  const filterTickets = (tickets) => {
+    const { isCheckedAll, isCheckedNo, isCheckedOne, isCheckedTwo, isCheckedThree } = filter;
+    if (isCheckedAll) {
+      return tickets
+    } else {
+      let filteredTickets = [];
+      if (isCheckedNo) {
+        let noTransfer = tickets.filter((elem) => {
+          return (elem.segments[0].stops.length === 0) || (elem.segments[1].stops.length === 0)
+        })
+        filteredTickets = [...filteredTickets, ...noTransfer]
+      }
+      if (isCheckedOne) {
+        let noTransfer = tickets.filter((elem) => {
+          return (elem.segments[0].stops.length === 1) || (elem.segments[1].stops.length === 1)
+        })
+        filteredTickets = [...filteredTickets, ...noTransfer]
+      }
+      if (isCheckedTwo) {
+        let noTransfer = tickets.filter((elem) => {
+          return (elem.segments[0].stops.length === 2) || (elem.segments[1].stops.length === 2)
+        })
+        filteredTickets = [...filteredTickets, ...noTransfer]
+      }
+      if (isCheckedThree) {
+        let noTransfer = tickets.filter((elem) => {
+          return (elem.segments[0].stops.length === 3) || (elem.segments[1].stops.length === 3)
+        })
+        filteredTickets = [...filteredTickets, ...noTransfer]
+      }
+      return filteredTickets
+    }
+  }
   
-  // const ticketsArr = [ <Ticket id={1}/>, <Ticket id={2} />, <Ticket id={3}/>, <Ticket id={4}/>, <Ticket id={5}/>];
+  const sortTickets = (filteredTickets) => {
+    const { currentSorting } = sort;
+    if (currentSorting === "cheapest") {
+      return filteredTickets.sort((a, b) => a.price - b.price)
+    }
+    if (currentSorting === "fastest") {
+      return filteredTickets.sort((a, b) =>  (a.segments[0].duration + a.segments[1].duration) - (b.segments[0].duration + b.segments[1].duration));
+    }
+  }
+  
+  const renderTickets = (tickets) => tickets.slice(0,5).map((ticket, index) => <Ticket id={index} data={ticket}/>);
+  
+  const ticketsToBeRendered = renderTickets(sortTickets(filterTickets(tickets)));
   
   return (
     <div className={classes.app}>
@@ -38,7 +92,7 @@ const App = ({tickets, stop, searchId, fetchId, fetchTickets}) => {
         </section>
         <section className={classes.tickets}>
           <SortingPanel />
-          <TicketsList list={ticketsList(tickets)}/>
+          <TicketsList list={ticketsToBeRendered}/>
         </section>
       </main>
     </div>
@@ -49,7 +103,9 @@ const mapStateToProps = (state) => {
   return {
     tickets: state.tickets.tickets,
     stop: state.tickets.stop,
-    searchId: state.tickets.searchId
+    searchId: state.tickets.searchId,
+    filter: state.filter,
+    sort: state.sort
   }
 };
 

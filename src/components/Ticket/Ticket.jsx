@@ -4,7 +4,7 @@ import classes from "./Ticket.module.scss";
 
 /* eslint-disable */
 
-const Ticket = (props) => { // eslint-disable-line
+const Ticket = (props) => {
   
   const {
     data: {
@@ -28,8 +28,6 @@ const Ticket = (props) => { // eslint-disable-line
       ]
     }
   } = props;
-  
-  console.log(durationTo)
   
   return (
     <article className={classes.ticket}>

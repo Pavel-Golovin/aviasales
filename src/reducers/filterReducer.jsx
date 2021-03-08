@@ -1,11 +1,11 @@
 import {toggleCheckbox, toggleCheckboxAll} from "../utils/functions";
 
 const initialState = {
-  isCheckedAll: false,
-  isCheckedNo: false,
-  isCheckedOne: false,
-  isCheckedTwo: false,
-  isCheckedThree: false
+  isCheckedAll: true,
+  isCheckedNo: true,
+  isCheckedOne: true,
+  isCheckedTwo: true,
+  isCheckedThree: true
 }
 
 // eslint-disable-next-line
