@@ -14,9 +14,8 @@ import * as actions from "../../actions";
 
 const App = ({tickets, stop, searchId, fetchId, fetchTickets}) => {
   
-  const service = new ServiceAPI();
-  
   useEffect(() => {
+    const service = new ServiceAPI();
     if (!searchId) {
       fetchId(service);
     } else if (!stop) {
@@ -24,7 +23,9 @@ const App = ({tickets, stop, searchId, fetchId, fetchTickets}) => {
     }
   }, [searchId, tickets]);
   
-  const ticketsArr = [ <Ticket id={1}/>, <Ticket id={2} />, <Ticket id={3}/>, <Ticket id={4}/>, <Ticket id={5}/>];
+  const ticketsList = (tickets) => tickets.slice(0,5).map((ticket, index) => <Ticket id={index} data={ticket}/>);
+  
+  // const ticketsArr = [ <Ticket id={1}/>, <Ticket id={2} />, <Ticket id={3}/>, <Ticket id={4}/>, <Ticket id={5}/>];
   
   return (
     <div className={classes.app}>
@@ -37,7 +38,7 @@ const App = ({tickets, stop, searchId, fetchId, fetchTickets}) => {
         </section>
         <section className={classes.tickets}>
           <SortingPanel />
-          <TicketsList list={ticketsArr}/>
+          <TicketsList list={ticketsList(tickets)}/>
         </section>
       </main>
     </div>
