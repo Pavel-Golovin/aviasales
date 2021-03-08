@@ -1,6 +1,6 @@
 export default class ServiceAPI {
   
-  id = null;
+  baseApi = `https://front-test.beta.aviasales.ru`
   
   async getResponse(url) {
     const response = await fetch(url);
@@ -12,15 +12,12 @@ export default class ServiceAPI {
   }
   
   async getSearchId() {
-    if (!this.id) {
-      const { searchId } = await this.getResponse(`https://front-test.beta.aviasales.ru/search`);
-      this.id = searchId;
-    }
-    return this.id;
+    const { searchId } = await this.getResponse(`${this.baseApi}/search`);
+    return searchId;
   }
   
-  async receiveTickets() {
-    const response = await this.getResponse(`https://front-test.beta.aviasales.ru/tickets?searchId=${this.id}`);
+  async getTickets(id) {
+    const response = await this.getResponse(`${this.baseApi}/tickets?searchId=${id}`);
     return response;
   }
 
