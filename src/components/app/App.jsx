@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react';
 import {bindActionCreators} from "redux";
 import { connect } from "react-redux";
+import { Progress } from 'antd';
+import "./Progress.scss";
 import logo from '../../images/logo.svg';
 import classes from './App.module.scss';
 import Ticket from "../Ticket/Ticket";
@@ -92,6 +94,10 @@ const App = (props) => {
         </section>
         <section className={classes.tickets}>
           <SortingPanel />
+          <Progress
+            percent={(stop) ? 0 : tickets.length * 100 / 10000}
+            showInfo={false}
+          />
           <TicketsList list={ticketsToBeRendered}/>
         </section>
       </main>
