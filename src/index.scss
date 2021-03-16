@@ -42,4 +42,7 @@ h3 {
   margin: auto;
 }
 
-/*font-family: 'Open Sans', sans-serif;*/
+.ant-alert.ant-alert-info.ant-alert-no-icon .ant-alert-message {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
