@@ -19,3 +19,12 @@ h2,
 h3 {
   margin: 0;
 }
+
+.ant-progress.ant-progress-line.ant-progress-status-normal.ant-progress-default .ant-progress-outer {
+  margin-top: 15px;
+  z-index: 120;
+}
+
+.ant-progress-bg {
+  background: green;
+}
