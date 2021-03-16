@@ -28,3 +28,18 @@ h3 {
 .ant-progress-bg {
   background: green;
 }
+
+.ant-alert.ant-alert-info.ant-alert-no-icon {
+  z-index: 120;
+  min-height: 50px;
+  background-color: #7FFFD4;
+  border: 1px solid blue;
+  border-radius: 4px;
+  display: flex;
+}
+
+.ant-alert.ant-alert-info.ant-alert-no-icon .ant-alert-content {
+  margin: auto;
+}
+
+/*font-family: 'Open Sans', sans-serif;*/

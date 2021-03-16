@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Progress } from 'antd';
+import { Progress, Alert } from 'antd';
 import PropTypes from 'prop-types';
 import logo from '../../images/logo.svg';
 import TicketsList from '../TicketsList/TicketsList';
@@ -28,6 +28,13 @@ const App = (props) => {
   const [sortedTickets] = useSorting(filteredTickets, sort);
   const [ticketsToBeRendered] = useRenderTickets(sortedTickets);
 
+  const content =
+    ticketsToBeRendered.length || !stop ? (
+      <TicketsList list={ticketsToBeRendered} />
+    ) : (
+      <Alert message="Рейсов, подходящих под фильтры, не найдено" type="info" />
+    );
+
   return (
     <div className={classes.app}>
       <header className={classes.app__header}>
@@ -40,7 +47,7 @@ const App = (props) => {
         <section className={classes.tickets}>
           <SortingPanel />
           <Progress percent={stop ? 0 : (tickets.length * 100) / 10000} showInfo={false} />
-          <TicketsList list={ticketsToBeRendered} />
+          {content}
         </section>
       </main>
     </div>
