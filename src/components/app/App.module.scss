@@ -23,7 +23,7 @@
 .filters {
   width: 192px;
   height: 212px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 5px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -31,9 +31,8 @@
 
 .tickets {
   width: 502px;
-//  outline: 2px dotted red;
+  //  outline: 2px dotted red;
 }
-
 
 @media screen and (max-width: 940px) {
   .app {
@@ -58,7 +57,6 @@
     padding: 0 23px 0;
   }
 }
-
 
 @media screen and (max-width: 780px) {
   .app {
